@@ -5,7 +5,9 @@ import akka.actor._
 import com.pers.practice.core.Bean
 import com.pers.practice.objects.ProcessThreadPool
 
-
+/**
+ * Base Actor class.
+ */
 class MessageProcessorAkka extends Actor {
   
  val greeter: ActorRef = context.actorOf(
