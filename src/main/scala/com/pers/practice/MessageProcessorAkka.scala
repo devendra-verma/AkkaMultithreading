@@ -9,19 +9,12 @@ import com.pers.practice.objects.ProcessThreadPool
  * Base Actor class.
  */
 class MessageProcessorAkka extends Actor {
-  
- val greeter: ActorRef = context.actorOf(
-    ProcessThreadPool.propsWithDispatcherAndRoundRobinRouter("default-dispatcher",3),
-    name = "processor"
-  )
-  
+ 
   override def receive: Receive = {
     case x: Bean => { 
       println(x.getRequestText)
+      println(x.getAlertType.getDescription)
       }
   }
 }
   
-object MessageProcessorAkka {
-    def props = Props(classOf[MessageProcessorAkka])
-  }
